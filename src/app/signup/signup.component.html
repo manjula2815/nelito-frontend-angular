@@ -1,0 +1,51 @@
+<div class="header_container">
+  <div class="header_left">
+    <p>Nelito Software</p>
+  </div>
+  <div class="header_right">
+    <ul>
+      <li>
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+<div class="alert alert-dark" *ngIf="successMessage">{{ successMessage }}</div>
+
+<div class="form_container">
+  <form [formGroup]="signupForm" (ngSubmit)="signupUser()">
+    <div class="form_group">
+      <label>Username</label>
+      <input type="text" class="form-control" formControlName="username" />
+      <div *ngIf="username && username.invalid && username.touched">
+        Username is required.
+      </div>
+    </div>
+    <div class="form_group">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="password" />
+      <div *ngIf="password && password.invalid && password.touched">
+        Password is required.
+      </div>
+    </div>
+    <div class="form_group">
+      <label>Email ID</label>
+      <input type="email" class="form-control" formControlName="email" />
+      <div *ngIf="email && email.invalid && email.touched">
+        Enter valid EmailId.
+      </div>
+    </div>
+    <div class="form_group">
+      <label>Phone Number</label>
+      <input type="text" class="form-control" formControlName="phone" />
+      <div *ngIf="phone && phone.invalid && phone.touched">
+        Enter 10 digit Mobile Number
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!signupForm.valid">SignUp</button>
+  </form>
+</div>

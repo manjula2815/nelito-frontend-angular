@@ -1,0 +1,33 @@
+<div class="header_container">
+  <div class="header_left">
+    <p>Nelito Software</p>
+  </div>
+  <div class="header_right">
+    <ul>
+      <li>
+        <a class="user_head" *ngIf="username">Welcome {{ username }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="alert alert-dark head" role="alert">Dashboard</div>
+<div class="dashboard_container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Email ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of tabledata; let index = index">
+        <th scope="row">{{ res.id }}</th>
+        <td>{{ res.email }}</td>
+        <td>{{ res.username }}</td>
+        <td>{{ res.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,36 @@
+<div class="header_container">
+  <div class="header_left">
+    <p>Nelito Software</p>
+  </div>
+  <div class="header_right">
+    <ul>
+      <li>
+        <a routerLink="/signup" routerLinkActive="active">signup</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+<div class="form_container">
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <div class="form_group">
+      <label>Username</label>
+      <input type="text" class="form-control" formControlName="username" />
+      <div *ngIf="username && username.invalid && username.touched">
+        Name is required.
+      </div>
+    </div>
+    <div class="form_group">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="password" />
+      <div *ngIf="password && password.invalid && password.touched">
+        Password is required.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+  </form>
+</div>
